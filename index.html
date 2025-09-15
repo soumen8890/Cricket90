@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asia Cup 2025 Live Stream</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            color: #fdbb2d;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .match-info {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stream-container {
+            background: #000;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+        
+        #main-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #111;
+        }
+        
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            align-items: center;
+        }
+        
+        .quality-selector, .sound-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 50px;
+        }
+        
+        select, .sound-slider {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            padding: 5px 15px;
+            outline: none;
+        }
+        
+        .sound-slider {
+            -webkit-appearance: none;
+            width: 100px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+        
+        .sound-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #fdbb2d;
+            cursor: pointer;
+        }
+        
+        .live-badge {
+            background: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-left: auto;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .card h3 {
+            margin-bottom: 10px;
+            color: #fdbb2d;
+        }
+        
+        .scorecard {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .commentary {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .comment {
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .live-badge {
+                margin-left: 0;
+                align-self: center;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* Animation for live badge */
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+        
+        .live-badge {
+            animation: pulse 1.5s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-cricket"></i>
+                <h1>Asia Cup 2025 Live Stream</h1>
+            </div>
+        </header>
+        
+        <div class="match-info">
+            <h2>Final Match: India vs Pakistan</h2>
+            <p>Dubai International Stadium | September 15, 2025</p>
+        </div>
+        
+        <div class="stream-container">
+            <div class="video-wrapper">
+                <video id="main-player" controls></video>
+            </div>
+            
+            <div class="controls">
+                <div class="quality-selector">
+                    <i class="fas fa-tv"></i>
+                    <select id="quality-select">
+                        <option value="1080">1080p HD</option>
+                        <option value="720">720p HD</option>
+                        <option value="480">480p SD</option>
+                        <option value="240">240p Low</option>
+                    </select>
+                </div>
+                
+                <div class="sound-control">
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" min="0" max="100" value="80" class="sound-slider" id="volume-slider">
+                </div>
+                
+                <div class="live-badge">
+                    <i class="fas fa-circle"></i>
+                    LIVE
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats">
+            <div class="card">
+                <h3>Live Score</h3>
+                <div class="scorecard">
+                    <span>India</span>
+                    <span>187/3 (32.4 overs)</span>
+                </div>
+                <div class="scorecard">
+                    <span>Pakistan</span>
+                    <span>Yet to bat</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Partnership</h3>
+                <div class="scorecard">
+                    <span>Current</span>
+                    <span>86 runs (62 balls)</span>
+                </div>
+                <div class="scorecard">
+                    <span>Last Wicket</span>
+                    <span>Kohli c Rizwan b Afridi 57(62)</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Match Stats</h3>
+                <div class="scorecard">
+                    <span>Run Rate</span>
+                    <span>5.73</span>
+                </div>
+                <div class="scorecard">
+                    <span>Required Rate</span>
+                    <span>5.92</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h3>Ball-by-Ball Commentary</h3>
+            <div class="commentary">
+                <div class="comment">
+                    <p>32.4: Shaheen Afridi to Sharma, FOUR! Beautiful drive through covers!</p>
+                </div>
+                <div class="comment">
+                    <p>32.3: Shaheen Afridi to Sharma, no run, defensive shot played</p>
+                </div>
+                <div class="comment">
+                    <p>32.2: Shaheen Afridi to Rahul, 1 run, pushed to mid-wicket</p>
+                </div>
+                <div class="comment">
+                    <p>32.1: Shaheen Afridi to Rahul, no run, beaten outside off</p>
+                </div>
+                <div class="comment">
+                    <p>End of over 32: 7 runs added. India 183/3</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 Asia Cup Cricket Live Stream | Official Broadcasting Partner</p>
+            <p>This is a demo interface. Actual streaming links will be provided by official broadcasters.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const player = document.getElementById('main-player');
+            const qualitySelector = document.getElementById('quality-select');
+            const volumeSlider = document.getElementById('volume-slider');
+            
+            // Mock stream sources (in a real scenario, these would be actual m3u8 URLs)
+            const streamSources = {
+                '1080': 'https://tataplay.slivcdn.com/hls/live/2020591-b/TEN3HD/hdntl=exp=1751529563~acl=%2f*~id=8a195a9a-1ae9-4044-9d54-e2aee5c5ceee~data=hdntl~hmac=b5ddc0d538fff3545aa5e496f274cc9b06f315767fff652271b9c8eafb7382ea/master_3500.m3u8',
+                '720': 'https://d1zq5no55rw5ua.cloudfront.net/136736_hindi_hls_201f23489044449ta-di_h264/1080p5.m3u8',
+                '480': 'https://d1zq5no55rw5ua.cloudfront.net/136736_hindi_hls_201f23489044449ta-di_h264/480p.m3u8',
+                '240': 'https://d1zq5no55rw5ua.cloudfront.net/136736_hindi_hls_201f23489044449ta-di_h264/240p.m3u8'
+            };
+            
+            // Set initial volume
+            player.volume = volumeSlider.value / 100;
+            
+            // Handle quality change
+            qualitySelector.addEventListener('change', function() {
+                const quality = this.value;
+                // In a real implementation, we would change the video source
+                console.log('Switching to quality: ' + quality + 'p');
+                alert('In a real implementation, this would switch to: ' + streamSources[quality]);
+                
+                // For demo purposes, we'll just show a message
+                player.innerHTML = `
+                    <div style="color:white;text-align:center;padding-top:45%">
+                        <h2>Stream would switch to ${quality}p quality</h2>
+                        <p>m3u8 URL: ${streamSources[quality]}</p>
+                    </div>
+                `;
+            });
+            
+            // Handle volume change
+            volumeSlider.addEventListener('input', function() {
+                player.volume = this.value / 100;
+            });
+            
+            // For demo purposes, show a message in the video player
+            player.innerHTML = `
+                <div style="color:white;text-align:center;padding-top:45%">
+                    <h2>Live Stream Player</h2>
+                    <p>In a real implementation, this would show the live cricket stream</p>
+                    <p>Current quality: 1080p</p>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
